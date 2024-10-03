@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Health Care</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'dailytracker/img/favicon.ico'%}" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/animate/animate.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'dailytracker/css/style.css'%}" rel="stylesheet">
+        <!-- Chartjs -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--        calendar add-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.8.24/themes/base/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="//code.jquery.com/ui/1.8.24/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+$("#datepicker").live('click',function() {
+     $(this).datepicker({
+          dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true
+        }).datepicker( "show" );
+    });
+</script>
+    </head>
+
+    <body>
+    <div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col d-flex align-items-center">
+							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+91 9846610290</a> or <span class="mailus">email us:</span> <a href="#">healthcoach@gmail.com</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{% url 'graph' %}" class="nav-link">Track your health</a></li>
+	        	<li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
+	        </ul>
+
+              {% if request.session.username %}
+              <div style="border:1px solid white;padding:10px;">
+              <a style="color:white;">welcome {{request.session.username}} </a>
+              </div>
+                <div style="border:1px solid white;padding:10px;background-color:#fbaf32">
+
+              <a style="color:white; " href="{% url 'user_logout' %}">Logout</a>
+                </div>
+              {% else %}
+              <a><button class="btn">Login</button></a>
+              {% endif %}
+	      </div>
+	    </div>
+	  </nav>
+
+
+
+        <!-- Page Header Start -->
+        <div class="page-header mb-0" style="background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({% static 'dailytracker/img/background.jpg'%}) !important;background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                         {% if request.session.username %}
+                   <div style="text-align:center;margin-bottom:30px;">
+                       <h3 style="color:white;">Hai <span>{{request.session.username}}</span></h3>
+                       <h4 style="color:white;">Monitor your health</h4>
+                 {% endif %}
+
+
+                    </div>
+                    <div class="col-12">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+
+
+
+        <!-- Menu Start -->
+        <div class="menu">
+            <div class="container">
+
+
+
+
+
+
+                    </div>
+                <div class="menu-tab" style="width: 500px;margin-left:300px;background-color:#694a17;text-align:center;">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+
+
+<script>
+const ctx = document.getElementById('myChart');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for i in final %} '{{i.day}}', {% endfor %}],
+        datasets: [{
+            label: '# of Calorie',
+            data: [{% for i in final %} '{{i.total}}', {% endfor %}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+         <!-- <script type="module" src="dimensions.js"></script> -->
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'dailytracker/lib/easing/easing.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'dailytracker/mail/jqBootstrapValidation.min.js'%}"></script>
+        <script src="{% static 'dailytracker/mail/contact.js'%}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'dailytracker/js/main.js'%}"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+	{% for i in messages %}
+		{% if i.tags == 'success' %}
+			<script>
+				swal('{{i}}','','success')
+			</script>
+		{% else %}
+			<script>
+				swal('{{i}}','','error')
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+
+
+    </body>
+    <style>
+        .menu .menu-item {
+    position: relative;
+    margin-bottom: 0px !important;
+    display: flex;
+    align-items: center;
+}
+       </style>
+</html>

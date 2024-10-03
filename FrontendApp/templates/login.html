@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="{% static 'dailytracker/img/favicon.ico'%}" rel="icon">
+
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'signin/images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/fonts/iconic/css/material-design-iconic-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/css/main.css'%}">
+<!--===============================================================================================-->
+</head>
+<body style="background-image:url({% static 'signin/images/bgimg1.jpg' %}) !important;
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;">
+
+	<div class="limiter" style="padding:50px 450px">
+		<div class="" >
+			<div class="wrap-login100" style="background-image:url({% static 'signin/images/bgimg.jpg' %})">
+				<form class="login100-form validate-form" method="post" action="{% url 'userlogin' %}">
+					{% csrf_token %}
+
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+					<div style="text-align:center;">
+						<a class="navbar-brand" href="" style="color:white;">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+<!--					<div class="contact100-form-checkbox">-->
+<!--						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">-->
+<!--						<label class="label-checkbox100" for="ckb1">-->
+<!--							Remember me-->
+<!--						</label>-->
+<!--					</div>-->
+
+						<div class="row" style="text-align:center;margin-left:130px;">
+					<div class="col-lg-4" style="padding:0 20px;">
+						<button class="btn" type="submit" style=" background-color: #a56f6f;color:white;width:100px;">
+							<a>Login</a>
+						</button>
+				</div>
+							</div>
+					<div class="row" style="margin-top:50px;text-align:center;">
+					<div class="col-lg-12" >
+						<p style="color:white;">Not registerd ? <a href="{% url 'signup' %}" style="color:white;"> Sign Up  </a></p>
+
+						</div>
+
+						</div>
+
+<!--					<div class="text-center p-t-90">-->
+<!--						<a class="txt1" href="#">-->
+<!--							Forgot Password?-->
+<!--						</a>-->
+<!--					</div>-->
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static 'signin/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{% static 'signin/vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/countdowntime/countdowntime.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/js/main.js'%}"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+	{% for i in messages %}
+		{% if i.tags == 'success' %}
+			<script>
+				swal('{{i}}','','success')
+			</script>
+		{% else %}
+			<script>
+				swal('{{i}}','','error')
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+</body>
+</html>

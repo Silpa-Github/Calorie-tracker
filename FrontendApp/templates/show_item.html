@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Health Care</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'dailytracker/img/favicon.ico'%}" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/animate/animate.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'dailytracker/css/style.css'%}" rel="stylesheet">
+    </head>
+
+    <body>
+        <!-- Nav Bar Start -->
+<!--        <div class="navbar navbar-expand-lg bg-light navbar-light">-->
+<!--            <div class="container-fluid">-->
+<!--                <a href="indexpage.html" class="navbar-brand">Burger <span>King</span></a>-->
+<!--                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+
+<!--                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">-->
+<!--                    <div class="navbar-nav ml-auto">-->
+<!--                        <a href="indexpage.html" class="nav-item nav-link">Home</a>-->
+<!--                        <a href="about.html" class="nav-item nav-link">About</a>-->
+<!--                        <a href="feature.html" class="nav-item nav-link">Feature</a>-->
+<!--                        <a href="team.html" class="nav-item nav-link">Chef</a>-->
+<!--                        <a href="menu.html" class="nav-item nav-link active">Menu</a>-->
+<!--                        <a href="booking.html" class="nav-item nav-link">Booking</a>-->
+<!--                        <div class="nav-item dropdown">-->
+<!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>-->
+<!--                            <div class="dropdown-menu">-->
+<!--                                <a href="blog.html" class="dropdown-item">Blog Grid</a>-->
+<!--                                <a href="single.html" class="dropdown-item">Blog Detail</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="contact.html" class="nav-item nav-link">Contact</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- Nav Bar End -->
+        				<div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col d-flex align-items-center">
+							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+91 9846610290</a> or <span class="mailus">email us:</span> <a href="#">healthcoach@gmail.com</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	        	<li class="nav-item"><a href="{% url 'dailytracker' %}" class="nav-link">Track Your day</a></li>
+	        	<li class="nav-item"><a href="{% url 'calorie_calculate' %}" class="nav-link">calorie calculator sample </a></li>
+	        	<li class="nav-item"><a href="" class="nav-link">Calorie calculator</a></li>
+	        	<li class="nav-item"><a href="{% url 'BMI' %}" class="nav-link">BMI Calculator</a></li>
+<!--	          <li class="nav-item"><a href="success-stories.html" class="nav-link">Stories</a></li>-->
+<!--	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>-->
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+
+
+
+        <!-- Page Header Start -->
+        <div class="page-header mb-0" style="background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({% static 'dailytracker/img/background.jpg'%}) !important;background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;">
+">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Track Your Today</h2>
+
+
+                    </div>
+                    <div class="col-12">
+<!--                        <a href="">Today:</a>-->
+                        <a href="">{{date}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+
+
+
+        <!-- Menu Start -->
+        <div class="menu">
+            <div class="container">
+<!--                <div class="section-header text-center">-->
+<!--                    <p>{{date}}</p>-->
+<!--                    <h2>Track Your Day</h2>-->
+<!--                </div>-->
+                   <div style="text-align:center;margin-bottom:30px;">
+
+
+                        <h3 style="color:black">You can eat <span style="color:red">{{calorie}}</span> calorie today</h3>
+
+                    </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+             <div class="row">
+
+
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add items</h4>
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table table-dark">
+                        <thead style="color:white;">
+                          <tr>
+                            <th></th>
+                            <th> Item </th>
+                            <th> Calorie </th>
+                            <th> Carbohydrates </th>
+                              <th>Fiber </th>
+                              <th> Protein </th>
+                              <th> Fat </th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in nutrients %}
+                          <tr>
+                            <td><img src="{{i.image.url}}" width="70" height="50" style="border-radius:50%"> </td>
+
+                            <td> {{i.name}} </td>
+                            <td> {{i.calorie}} </td>
+                            <td> {{i.carbohydrates}} </td>
+                              <td> {{i.fiber}} </td>
+                              <td> {{i.protein}} </td>
+                              <td> {{i.fat}} </td>
+                             <td>
+                                 <form action="{% url 'item_added_save' %}" method="post">
+                                     {% csrf_token %}
+                                  <input type="text" name="name_added" value="{{i.name}}">
+                                  <input type="text" name="calorie_added" value="{{i.calorie}}">
+                                     <input type="text" value="{{request.session.username}}" name="hiddenusername">
+                                  <td>
+                                <a href="">
+                                    <button class="btn" style="background-color:#fbaf32;height:30px;">Add</button>
+                                </a>
+                            </td>
+                                       </form>
+                                 </td>
+
+
+<!--                            <td>-->
+<!--                                  <a href="{% url 'delete_fooditem' foodid=i.id %}">-->
+<!--                                    <button class="btn btn-primary">Delete</button>-->
+<!--                                </a>-->
+<!--                            </td>-->
+
+                          </tr>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'dailytracker/lib/easing/easing.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'dailytracker/mail/jqBootstrapValidation.min.js'%}"></script>
+        <script src="{% static 'dailytracker/mail/contact.js'%}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'dailytracker/js/main.js'%}"></script>
+    </body>
+</html>

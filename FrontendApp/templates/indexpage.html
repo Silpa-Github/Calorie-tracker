@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Health Care</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'dailytracker/img/favicon.ico'%}" rel="icon">
+
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/animate/animate.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'dailytracker/css/style.css'%}" rel="stylesheet">
+
+<!--        calendar add-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.8.24/themes/base/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="//code.jquery.com/ui/1.8.24/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+$("#datepicker").live('click',function() {
+     $(this).datepicker({
+          dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true
+        }).datepicker( "show" );
+    });
+</script>
+    </head>
+
+    <body>
+    <div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col d-flex align-items-center">
+							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+91 9846610290</a> or <span class="mailus">email us:</span> <a href="#">healthcoach@gmail.com</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{% url 'graph' %}" class="nav-link">Track your health</a></li>
+	        	<li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
+	        </ul>
+
+              {% if request.session.username %}
+              <div style="border:1px solid white;padding:10px;">
+              <a style="color:white;">welcome {{request.session.username}} </a>
+              </div>
+                <div style="border:1px solid white;padding:10px;background-color:#fbaf32">
+
+              <a style="color:white; " href="{% url 'user_logout' %}">Logout</a>
+                </div>
+              {% else %}
+              <a><button class="btn">Login</button></a>
+              {% endif %}
+	      </div>
+	    </div>
+	  </nav>
+
+
+
+        <!-- Page Header Start -->
+        <div class="page-header mb-0" style="background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({% static 'dailytracker/img/background.jpg'%}) !important;background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Track Your Today</h2>
+
+
+                    </div>
+                    <div class="col-12">
+<!--                        <a href="">Today:</a>-->
+<!--                        <a href="">{{date}}</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+
+
+
+        <!-- Menu Start -->
+        <div class="menu">
+            <div class="container">
+<!--                <div class="section-header text-center">-->
+<!--                    <p>{{date}}</p>-->
+<!--                    <h2>Track Your Day</h2>-->
+<!--                </div>-->
+                 {% if request.session.username %}
+                   <div style="text-align:center;margin-bottom:30px;">
+                       <h3>Hai <span>{{request.session.username}}</span></h3>
+                 {% endif %}
+
+
+
+
+                    </div>
+                <div class="menu-tab">
+
+                    <div style="text-align:center;margin:0px 150px 0 150px;padding:15px;border-radius:70%; border:5px solid #fbaf32;">
+                        <h3 style="color:black">You can eat <span style="color:red">{{calorie}}</span> calorie today</h3>
+                       <h3 style="color:black">Total <span style="color:red">{{total}}</span> calorie consumed </h3>
+                       <h3 style="color:black">Remaining <span style="color:red">{{rem_calorie}}</span> calorie </h3>
+                    </div>
+
+                    <div class="tab-content">
+                        <div id="add" class="container tab-pane active">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12" >
+
+
+                                    <div class="table-responsive" >
+
+                      <table class="table " style="padding-top:30px !important;">
+
+                        <thead style="color:#fbaf32;">
+
+
+
+                       <div class="row" style="text-align:center;margin-top:0px;margin-bottom:50px;">
+
+                              <div class="col-lg-12">
+                                 <div class="menu-tab">
+                    <ul class="nav nav-pills justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link active"  href="{% url 'add_food' %}" >Add food</a>
+                        </li>
+                    </ul>
+                              </div>
+
+                       </div>
+                        </thead>
+                      </table>
+
+
+
+                                    </div>
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'dailytracker/lib/easing/easing.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'dailytracker/mail/jqBootstrapValidation.min.js'%}"></script>
+        <script src="{% static 'dailytracker/mail/contact.js'%}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'dailytracker/js/main.js'%}"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+	{% for i in messages %}
+		{% if i.tags == 'success' %}
+			<script>
+				swal('{{i}}','','success')
+			</script>
+		{% else %}
+			<script>
+				swal('{{i}}','','error')
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+
+
+    </body>
+    <style>
+        .menu .menu-item {
+    position: relative;
+    margin-bottom: 0px !important;
+    display: flex;
+    align-items: center;
+}
+       </style>
+</html>

@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Health Care</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free Website Template" name="keywords">
+        <meta content="Free Website Template" name="description">
+
+        <!-- Favicon -->
+        <link href="{% static 'dailytracker/img/favicon.ico'%}" rel="icon">
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet">
+
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/animate/animate.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/flaticon/font/flaticon.css'%}" rel="stylesheet">
+        <link href="{% static 'dailytracker/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css'%}" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'dailytracker/css/style.css'%}" rel="stylesheet">
+
+<!--        calendar add-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.8.24/themes/base/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.8.2.js"></script>
+        <script src="//code.jquery.com/ui/1.8.24/jquery-ui.js"></script>
+
+        <script type="text/javascript">
+$("#datepicker").live('click',function() {
+     $(this).datepicker({
+          dateFormat: "yy-mm-dd",
+        changeMonth: true,
+        changeYear: true
+        }).datepicker( "show" );
+    });
+</script>
+    </head>
+
+    <body>
+        <!-- Nav Bar Start -->
+<!--        <div class="navbar navbar-expand-lg bg-light navbar-light">-->
+<!--            <div class="container-fluid">-->
+<!--                <a href="indexpage.html" class="navbar-brand">Burger <span>King</span></a>-->
+<!--                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">-->
+<!--                    <span class="navbar-toggler-icon"></span>-->
+<!--                </button>-->
+
+<!--                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">-->
+<!--                    <div class="navbar-nav ml-auto">-->
+<!--                        <a href="indexpage.html" class="nav-item nav-link">Home</a>-->
+<!--                        <a href="about.html" class="nav-item nav-link">About</a>-->
+<!--                        <a href="feature.html" class="nav-item nav-link">Feature</a>-->
+<!--                        <a href="team.html" class="nav-item nav-link">Chef</a>-->
+<!--                        <a href="menu.html" class="nav-item nav-link active">Menu</a>-->
+<!--                        <a href="booking.html" class="nav-item nav-link">Booking</a>-->
+<!--                        <div class="nav-item dropdown">-->
+<!--                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>-->
+<!--                            <div class="dropdown-menu">-->
+<!--                                <a href="blog.html" class="dropdown-item">Blog Grid</a>-->
+<!--                                <a href="single.html" class="dropdown-item">Blog Detail</a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <a href="contact.html" class="nav-item nav-link">Contact</a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- Nav Bar End -->
+        				<div class="wrap">
+			<div class="container">
+				<div class="row justify-content-between">
+						<div class="col d-flex align-items-center">
+							<p class="mb-0 phone"><span class="mailus">Phone no:</span> <a href="#">+91 9846610290</a> or <span class="mailus">email us:</span> <a href="#">healthcoach@gmail.com</a></p>
+						</div>
+						<div class="col d-flex justify-content-end">
+							<div class="social-media">
+				    		<p class="mb-0 d-flex">
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+				    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+				    		</p>
+			        </div>
+						</div>
+				</div>
+			</div>
+		</div>
+		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	    	<a class="navbar-brand" href="">Health<span>coach<i class="fa fa-leaf"></i></span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="fa fa-bars"></span> Menu
+	      </button>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	        	<li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+	        	<li class="nav-item"><a href="{% url 'graph' %}" class="nav-link">Track your health</a></li>
+	        	<li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
+	        </ul>
+
+              {% if request.session.username %}
+              <div style="border:1px solid white;padding:10px;">
+              <a style="color:white;">welcome {{request.session.username}} </a>
+              </div>
+                <div style="border:1px solid white;padding:10px;background-color:#fbaf32">
+
+              <a style="color:white; " href="{% url 'user_logout' %}">Logout</a>
+                </div>
+              {% else %}
+              <a><button class="btn">Login</button></a>
+              {% endif %}
+	      </div>
+	    </div>
+	  </nav>
+
+
+
+        <!-- Page Header Start -->
+        <div class="page-header mb-0" style="background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({% static 'dailytracker/img/background.jpg'%}) !important;background-position: center!important;
+    background-repeat: no-repeat!important;
+    background-size: cover!important;">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Track Your Today</h2>
+
+
+                    </div>
+                    <div class="col-12">
+<!--                        <a href="">Today:</a>-->
+<!--                        <a href="">{{date}}</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+
+
+
+        <!-- Menu Start -->
+        <div class="menu">
+            <div class="container">
+            </div>
+                <div class="menu-tab">
+                    <ul class="nav nav-pills justify-content-center">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#add" >Add food</a>
+                        </li>
+                        <li>
+                            <a class="nav-link active" href="{% url 'add_food' %}" >Show all items</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#calorieintake">Calorie intake</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="calorieintake" class="container tab-pane fade">
+                            <div class="row" style="text-align:center;">
+                                <div class="col-lg-12">
+                                    <h3 style="color:black">You can eat <span style="color:red">{{calorie}}</span> calorie today</h3>
+                                </div>
+                            </div>
+                            <div class="row" style="padding:50px;">
+                                <div class="col-lg-6" >
+                                    <h4 style="color:black">Consumed Calorie :<span style="color:red">{{total}}</span> </h4>
+                                </div>
+                                <div class="col-lg-6" style="text-align:right;">
+                                    <h4 style="color:black">Remaining Calorie :<span style="color:red">{{rem_calorie}}</span> </h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-9 col-md-9">
+                                    <div class="menu-item">
+                                        <div class="menu-img">
+                                            <img src="{% static 'dailytracker/img/menu-snack.jpg'%}" alt="Image">
+                                        </div>
+                                        <div class="menu-text">
+                                            <table style="border:1px solid black;width:400px;">
+                                                <thead>
+                                                <th></th>
+                                                <th style="padding-right:50px;"><h3>Item</h3></th>
+                                                <th><h3>Calorie</h3></th>
+                                                <th><h3>Quantity</h3></th>
+                                                </thead>
+                                                <tbody>
+                                            <input type="hidden" value="{{today}}" name="day">
+                                                {% for i in datetoday %}
+                                                <tr>
+                                                    <td><input type="hidden" value="{{i.datepicker}}" name="day1"></td>
+                                                    <td><input type="text" value="{{i.name_added}}" name="item"></td>
+                                                    <td><input type="text" value="{{i.calorie_added}}" name="calorie_added"></td>
+                                                    <td><input type="text" value="{{i.quantity}}" name="quantity"></td>
+                                                    <td><a href="{% url 'delete' itemid=i.id %}"><button type="submit" class="btn btn-danger">Delete</button></a></td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 d-none d-lg-block">
+                                    <img src="{% static 'dailytracker/img/menu-snack-img.jpg'%}" alt="Image">
+                                </div>
+                                 <div>
+                                     <form method="post" action="{% url 'save_final_data' %}">
+                                         {%csrf_token %}
+                                         <input type="text" value="{{request.session.username}}" name="username">
+                                        <input type="text" value="{{total}}" name="total">
+                                        <input type="text" value="{{today}}" name="day">
+                                         <h5>After you add today's food, you can save it for future reference."</h5>
+                                <button type="submit" style="color: #ffffff;
+                                    background: #fbaf32;border-radius: 5px;">Save your data</button>
+                                    </form>
+                            </div>
+                            </div>
+                        </div>
+                        <div id="add" class="container tab-pane active">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12" >
+                                    <div class="table-responsive" >
+                      <table class="table " style="padding-top:0px !important;">
+                        <thead style="color:#fbaf32;">
+                       <div class="row" style="text-align:center;margin-top:50px;margin-bottom:50px;">
+                              <div class="col-lg-12" style="text-align:center;">
+                                  <form>
+                                 <input type="search" name="q" placeholder="Search item" style="border:1px solid #fbaf32;width:500px;">
+                                    <button type="submit" style="background-color:#fbaf32;color:white;border:none;border-radius:5px;">Search</button>
+                                 </form>
+                             </div>
+                       </div>
+                          <tr>
+                            <th></th>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;"> Item</h3> </th></div>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;"> Calorie</h3> </th></div>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;"> CH</h3> </th></div>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;">Fiber </h3> </th></div>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;"> Protein</h3> </th></div>
+                              <div class="menu-text"> <th><h3 style="color:#fbaf32;"> Fat</h3> </th></div>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        {% for i in nutrients %}
+                        <div class="menu-item">
+                          <tr>
+                              <td>
+                                    <div class="menu-img">
+                                            <img src="{{i.image.url}}" width="70" height="50" alt="Image">
+                                        </div>
+                              </td>
+                              <td>
+                                    <div class="menu-text">
+                                        <p>{{i.name}}</p>
+                                        </div>
+                              </td>
+                               <td>
+                                    <div class="menu-text">
+                                        <p id="calorie_added" >{{i.calorie}}</p>
+                                        </div>
+                              </td>
+                               <td>
+                                    <div class="menu-text">
+                                        <p>{{i.carbohydrates}}</p>
+                                        </div>
+                              </td>
+                               <td>
+                                    <div class="menu-text">
+                                        <p>{{i.fiber}}</p>
+                                        </div>
+                              </td>
+                               <td>
+                                    <div class="menu-text">
+                                        <p>{{i.protein}}</p>
+                                        </div>
+                              </td>
+                               <td>
+                                    <div class="menu-text">
+                                        <p>{{i.fat}}</p>
+                                        </div>
+                              </td>
+                                 <form action="{% url 'item_added_save' %}" method="post">
+                                     {% csrf_token %}
+                                 <td> <input type="hidden" value="{{today}}" name="datepicker" ></td>
+                                 <td> <input type="hidden" name="name_added" value="{{i.name}}"></td>
+                                  <td><input  type="hidden"  name="calorie_added" value="{{i.calorie}}"></td>
+                                  <td><input style="width:100px;"  id="quantity" type="number" placeholder="Quantity"  name="quantity" onchange="calc(this)" min="0"></td>
+                                <td>  <input style="width:100px;" type="number"  id="total_calorie" placeholder="total cal" class="total_calorie" name="total_calorie" ></td>
+                                  <td><input type="hidden" name="calorie_intake" value="{{calorie}}"></td>
+                                 <td> <input type="hidden" value="{{request.session.username}}" name="hiddenusername"></td>
+                                <td>
+                                <a href="">
+                                    <button class="btn" style="background-color:#fbaf32;height:30px;">Add</button>
+                                </a>
+                            </td>
+
+                                 </form>
+
+                                 </td>
+                          </tr>
+                        </div>
+                        {% endfor %}
+                        </tbody>
+                      </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Menu End -->
+
+
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'dailytracker/lib/easing/easing.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/owlcarousel/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/moment-timezone.min.js'%}"></script>
+        <script src="{% static 'dailytracker/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js'%}"></script>
+
+        <!-- Contact Javascript File -->
+        <script src="{% static 'dailytracker/mail/jqBootstrapValidation.min.js'%}"></script>
+        <script src="{% static 'dailytracker/mail/contact.js'%}"></script>
+
+        <!-- Template Javascript -->
+        <script src="{% static 'dailytracker/js/main.js'%}"></script>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+	{% for i in messages %}
+		{% if i.tags == 'success' %}
+			<script>
+				swal('{{i}}','','success')
+			</script>
+		{% else %}
+			<script>
+				swal('{{i}}','','error')
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+<script>
+     var cal=document.getElementById("calorie_added").value;
+     var qua=document.getElementById("quantity").value;
+    function calc(v)
+    {
+     var calorie_added = v.parentElement.parentElement.children[11].children[0].value
+     v.parentElement.parentElement.children[13].innerHTML=calorie_added * v.value
+     x=v.parentElement.parentElement.children[13].innerHTML
+     document.getElementById("#hidden_calorie").value=x.value
+
+
+    }
+
+</script>
+
+
+    </body>
+    <style>
+        .menu .menu-item {
+    position: relative;
+    margin-bottom: 0px !important;
+    display: flex;
+    align-items: center;
+}
+       </style>
+</html>

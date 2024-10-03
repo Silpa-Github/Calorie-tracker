@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<title>Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'signin/images/icons/favicon.ico'%}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/fonts/iconic/css/material-design-iconic-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'signin/css/main.css'%}">
+<!--===============================================================================================-->
+</head>
+<body style="background-image:url({% static 'signin/images/bgimg1.jpg' %}) !important;
+	background-position:center;
+	background-size: cover;
+	background-repeat: no-repeat;">
+
+
+	<div class="limiter" style="padding:15px 450px">
+		<div class="" style="background-image:url({% static 'signin/images/bgimg.jpg' %})">
+			<div class="wrap-login100" style="background-image:url({% static 'signin/images/bgimg.jpg' %});">
+				<div class="login100-form validate-form">
+					<form name="signupform" method="post" onsubmit="return validation()" action="{% url 'signupsave' %}">
+					{% csrf_token %}
+
+
+					<span class="login100-form-title p-b-34 p-t-27" style="padding-top:0">
+						Sign Up
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" style="padding:0!important;height:20px;" type="text" name="username" placeholder="Username" required>
+					</div>
+                    <div class="wrap-input100 validate-input" data-validate = "Enter Email">
+						<input class="input100" style="padding:0!important;height:20px;" type="email" name="email" placeholder="Email" required>
+					</div>
+					 <div class="wrap-input100 validate-input" data-validate = "Enter Height">
+						<input class="input100" style="padding:0!important;height:20px;" type="number" name="height" placeholder="Height" required>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Weight">
+						<input class="input100" style="padding:0!important;height:20px;" type="number" name="weight" placeholder="Weight" required>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Age">
+						<input class="input100" style="padding:0!important;height:20px;" type="number" name="age" placeholder="Age" required>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter Weight" required>
+						<div class="row">
+							<div class="col-lg-2">
+								<label style="color:white;">Male</label>
+							</div>
+							<div class="col-lg-3">
+						<input class="input100"  type="radio" name="gender" style="width:16px;color:white;height:20px;" placeholder="" value="male" required>
+							</div>
+
+							<div class="col-lg-2">
+								<label style="color:white;">Female</label>
+							</div>
+							<div class="col-lg-3">
+						<input class="input100" type="radio" name="gender" style="width:16px;color:white;height:20px;" placeholder="" value="female" required>
+							</div>
+						</div>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" style="padding:0!important;height:20px;" type="password" name="password1" placeholder="Password" required>
+					</div>
+                    <div class="wrap-input100 validate-input" data-validate="Confirm password">
+						<input class="input100" style="padding:0!important;height:20px;" type="password" name="password2" placeholder="Confirm Password" required>
+					</div>
+					<input type="hidden" name="calorie_intake" placeholder="calorie">
+
+
+					<div class="row" style="text-align:center;margin-left:50px;">
+					<div class="col-lg-4" style="padding:0 20px;">
+						<button class="btn" type="submit" style=" background-color: #a56f6f;color:white;width:100px;">
+							<a>Sign Up</a>
+						</button>
+				</div>
+					<div class="col-lg-4" style="padding:0 20px;">
+						<button class="btn" style=" background-color: #a56f6f;color:white;width:100px;">
+						<a href="{% url 'login' %}" style="color:white;">Login</a>
+						</button>
+					</div>
+						</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/bootstrap/js/popper.js'%}"></script>
+	<script src="{% static 'signin/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/select2/select2.min.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/daterangepicker/moment.min.js'%}"></script>
+	<script src="{% static 'signin/vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/vendor/countdowntime/countdowntime.js'%}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'signin/js/main.js'%}"></script>
+<script>
+	function validation(){
+	pwd1=document.signupform.password1.value
+	pwd2=document.signupform.password2.value
+	if(pwd1.length<6){
+		alert("password must contain minimum 6 charactors")
+		return false
+	}
+	else if (pwd1!=pwd2){
+		alert("password doesn't match")
+		return false
+	}
+
+	}
+</script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+{% if messages %}
+	{% for i in messages %}
+		{% if i.tags == 'success' %}
+			<script>
+				swal('{{i}}','','success')
+			</script>
+		{% else %}
+			<script>
+				swal('{{i}}','','error')
+			</script>
+		{% endif %}
+	{% endfor %}
+{% endif %}
+
+
+</body>
+</html>
