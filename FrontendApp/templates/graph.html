@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
         <title>Health Care</title>
@@ -45,6 +45,7 @@ $("#datepicker").live('click',function() {
     </head>
 
     <body>
+
     <div class="wrap">
 			<div class="container">
 				<div class="row justify-content-between">
@@ -72,10 +73,10 @@ $("#datepicker").live('click',function() {
 	      </button>
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	        	<li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+                <li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
 	        	<li class="nav-item"><a href="{% url 'graph' %}" class="nav-link">Track your health</a></li>
-	        	<li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
-	        </ul>
+	        	<li class="nav-item"><a href="{% url 'BMI' %}" class="nav-link">Calculate BMI</a></li>	        </ul>
 
               {% if request.session.username %}
               <div style="border:1px solid white;padding:10px;">
@@ -95,27 +96,28 @@ $("#datepicker").live('click',function() {
 
 
         <!-- Page Header Start -->
-        <div class="page-header mb-0" style="background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({% static 'dailytracker/img/background.jpg'%}) !important;background-position: center!important;
-    background-repeat: no-repeat!important;
-    background-size: cover!important;">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                         {% if request.session.username %}
-                   <div style="text-align:center;margin-bottom:30px;">
-                       <h3 style="color:white;">Hai <span>{{request.session.username}}</span></h3>
-                       <h4 style="color:white;">Monitor your health</h4>
-                 {% endif %}
 
 
-                    </div>
-                    <div class="col-12">
 
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--            <div class="container" style="margin-top:70px;">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-12">-->
+<!--                         {% if request.session.username %}-->
+<!--                   <div style="text-align:center;margin-bottom:30px;">-->
+<!--                       <h3 style="color:white;">Hai <span>{{request.session.username}}</span></h3>-->
+<!--                       <h4 style="color:white;">Monitor your health</h4>-->
+<!--                 {% endif %}-->
+
+
+<!--                    </div>-->
+<!--                    <div class="col-12">-->
+
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
         <!-- Page Header End -->
 
 
@@ -123,17 +125,15 @@ $("#datepicker").live('click',function() {
 
 
         <!-- Menu Start -->
-        <div class="menu">
+     <video id="background-video" autoplay loop muted >
+  <source src="{% static 'frontend/video/workout.mp4' %}" type="video/mp4">
+</video>
+        <div class="menu" style="margin-top:150px;">
             <div class="container">
 
-
-
-
-
-
                     </div>
-                <div class="menu-tab" style="width: 500px;margin-left:300px;background-color:#694a17;text-align:center;">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                <div class="menu-tab" style="width: 400px;margin-left:400px;background-color:#474644;text-align:center;">
+                    <canvas id="myChart" width="500" height="400"></canvas>
 
 
 <script>
@@ -181,6 +181,7 @@ const myChart = new Chart(ctx, {
                 </div>
             </div>
         </div>
+
         <!-- Menu End -->
 
 
@@ -222,12 +223,25 @@ const myChart = new Chart(ctx, {
 
 
     </body>
+
     <style>
         .menu .menu-item {
     position: relative;
     margin-bottom: 0px !important;
     display: flex;
     align-items: center;
+}
+
+#background-video {
+   width: 100vw;
+   height: 100vh;
+   object-fit: cover;
+   position: fixed;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   z-index: -1;
 }
        </style>
 </html>

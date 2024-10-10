@@ -99,8 +99,9 @@ $("#datepicker").live('click',function() {
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
 	        	<li class="nav-item active"><a href="{% url 'indexpage' %}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
 	        	<li class="nav-item"><a href="{% url 'graph' %}" class="nav-link">Track your health</a></li>
-	        	<li class="nav-item"><a href="{% url 'add_food' %}" class="nav-link">Add food</a></li>
+	        	<li class="nav-item"><a href="{% url 'BMI' %}" class="nav-link">Calculate BMI</a></li>
 	        </ul>
 
               {% if request.session.username %}
@@ -207,20 +208,21 @@ $("#datepicker").live('click',function() {
                                     </div>
                                 </div>
                                 <div class="col-lg-3 d-none d-lg-block">
-                                    <img src="{% static 'dailytracker/img/menu-snack-img.jpg'%}" alt="Image">
+                                    <img src="{% static 'dailytracker/img/menu-snack-img.jpg'%}" alt="Image" height="100px" style="border-radius:50%;">
                                 </div>
-                                 <div>
+                            </div>
+                            <div style="text-align:center;margin-top:50px;">
                                      <form method="post" action="{% url 'save_final_data' %}">
                                          {%csrf_token %}
-                                         <input type="text" value="{{request.session.username}}" name="username">
-                                        <input type="text" value="{{total}}" name="total">
-                                        <input type="text" value="{{today}}" name="day">
-                                         <h5>After you add today's food, you can save it for future reference."</h5>
+                                         <input type="hidden" value="{{request.session.username}}" name="username">
+                                        <input type="hidden" value="{{total}}" name="total">
+                                        <input type="hidden" value="{{today}}" name="day">
+                                         <h5>After you add today's food, you can save it for future reference</h5>
                                 <button type="submit" style="color: #ffffff;
                                     background: #fbaf32;border-radius: 5px;">Save your data</button>
                                     </form>
                             </div>
-                            </div>
+
                         </div>
                         <div id="add" class="container tab-pane active">
                             <div class="row">

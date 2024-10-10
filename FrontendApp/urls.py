@@ -15,6 +15,7 @@ urlpatterns=[
     path('add_food/',views.add_food,name='add_food'),
     path('graph/',views.graph,name='graph'),
     path('save_final_data/',views.save_final_data,name='save_final_data'),
+    path('BMI/',views.BMI,name='BMI')
 
 
 ]
