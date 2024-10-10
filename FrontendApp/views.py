@@ -201,7 +201,8 @@ def save_final_data(request):
         obj=final_dataDB(username=username,total=total,day=day)
         obj.save()
         return redirect(indexpage)
-
+def BMI(request):
+    return render(request,'BMI.html')
 
 
 
